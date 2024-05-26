@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/gameRoundCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/ziggurat_semi_transparent"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="0dp"
+        app:contentPadding="@dimen/padding_standard">
+
+        <TextView
+            android:id="@+id/drawTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:textColor="@color/rhino"
+            android:textSize="20sp"
+            tools:text="15:00" />
+
+        <TextView
+            android:id="@+id/timeToPayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:textColor="@color/rhino"
+            android:textSize="20sp"
+            tools:text="2:22" />
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

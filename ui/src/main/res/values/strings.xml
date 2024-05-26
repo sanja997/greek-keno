@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="game_title">GRČKI KINO (20/80)</string>
+    <string name="draw_time">Vreme izvlacenja</string>
+    <string name="time_to_pay">Preostalo za uplatu</string>
+    <string name="something_went_wrong">Nesto nije u redu!</string>
+    <string name="try_again">Pokusajte opet</string>
+    <string name="ok">OK</string>
+    <string name="draw_time_with_time">Vreme izvlacenja: %s</string>
+    <string name="round_with_round_id">Kolo: %s</string>
+    <string name="sum_of_picked_numbers">Izabrano brojeva: %d</string>
+    <string name="bk">B.K</string>
+    <string name="odd">Kvota</string>
+    <string name="random_pick">Slucajni izbor</string>
+</resources>

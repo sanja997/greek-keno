@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/gameRoundCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/ziggurat_semi_transparent"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/numberText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:paddingVertical="4dp"
+                android:textColor="@color/rhino"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1" />
+
+            <View
+                android:id="@+id/separatorView"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/rhino"
+                app:layout_constraintBottom_toTopOf="@id/oddText"
+                app:layout_constraintEnd_toEndOf="@id/oddText"
+                app:layout_constraintStart_toStartOf="@id/oddText" />
+
+            <TextView
+                android:id="@+id/oddText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingHorizontal="@dimen/padding_standard"
+                android:paddingVertical="4dp"
+                android:textColor="@color/rhino"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@id/numberText"
+                app:layout_constraintStart_toStartOf="@id/numberText"
+                app:layout_constraintTop_toBottomOf="@id/numberText"
+                tools:text="25000" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

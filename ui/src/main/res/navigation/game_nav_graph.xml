@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/game_nav_graph"
+    app:startDestination="@id/fragmentGameRounds">
+
+    <fragment
+        android:id="@+id/fragmentGameRounds"
+        android:name="com.sanjacurcic.ui.gamerounds.GameRoundsFragment">
+
+        <action
+            android:id="@+id/fragmentGameRoundsToFragmentGame"
+            app:destination="@id/fragmentGame"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+
+            <argument
+                android:name="drawId"
+                app:argType="integer"
+                app:nullable="false" />
+
+            <argument
+                android:name="drawTime"
+                app:argType="long"
+                app:nullable="false" />
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentGame"
+        android:name="com.sanjacurcic.ui.game.GameFragment">
+
+        <action
+            android:id="@+id/fragmentGameToWebView"
+            app:destination="@id/webViewFragment" />
+
+        <argument
+            android:name="drawId"
+            app:argType="integer"
+            app:nullable="false" />
+
+        <argument
+            android:name="drawTime"
+            app:argType="long"
+            app:nullable="false" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.sanjacurcic.ui.webview.WebViewFragment">
+
+    </fragment>
+
+</navigation>

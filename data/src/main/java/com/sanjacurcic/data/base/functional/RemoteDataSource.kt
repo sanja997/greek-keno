@@ -1,6 +1,5 @@
 package com.sanjacurcic.data.base.functional
 
-import Either
 import retrofit2.Response
 
 abstract class RemoteDataSource {

@@ -1,6 +1,6 @@
 package com.sanjacurcic.domain.usecase
 
-import Either
+import com.sanjacurcic.data.base.functional.Either
 import com.sanjacurcic.data.model.GameRoundModel
 import com.sanjacurcic.data.repository.GameRepository
 import javax.inject.Inject

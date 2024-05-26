@@ -1,156 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-
-        <LinearLayout
-            android:id="@+id/infoLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_extra_large"
-            android:background="@color/ziggurat_semi_transparent"
-            android:padding="@dimen/padding_standard"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/drawTimeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="@color/rhino"
-                android:textSize="15sp"
-                tools:text="@string/draw_time_with_time" />
-
-            <TextView
-                android:id="@+id/timeToPayText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="@color/pumpkin_semi_transparent"
-                android:textSize="15sp"
-                tools:text="01:25" />
-
-            <TextView
-                android:id="@+id/roundText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:textColor="@color/rhino"
-                android:textSize="15sp"
-                tools:text="@string/round_with_round_id" />
-        </LinearLayout>
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/alto_semi_transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/oddRv"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/oddRv">
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
 
-            <TextView
-                android:id="@+id/numberText"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/infoLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_small"
-                android:paddingVertical="4dp"
-                android:text="@string/bk"
-                android:textColor="@color/rhino"
-                android:textSize="13sp"
+                android:layout_marginHorizontal="@dimen/margin_standard"
+                android:layout_marginTop="@dimen/margin_standard"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <View
-                android:id="@+id/separatorView"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:background="@color/rhino"
-                app:layout_constraintBottom_toTopOf="@id/oddText"
-                app:layout_constraintEnd_toEndOf="@id/oddText"
-                app:layout_constraintStart_toStartOf="@id/oddText" />
+                <TextView
+                    android:id="@+id/drawTimeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/rhino"
+                    android:textSize="16sp"
+                    tools:text="@string/draw_time_with_time" />
 
-            <TextView
-                android:id="@+id/oddText"
+                <TextView
+                    android:id="@+id/roundText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:textColor="@color/rhino"
+                    android:textSize="16sp"
+                    tools:text="@string/round_with_round_id" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingHorizontal="@dimen/padding_standard"
-                android:paddingVertical="4dp"
-                android:text="@string/odd"
-                android:textColor="@color/rhino"
-                android:textSize="13sp"
-                app:layout_constraintEnd_toEndOf="@id/numberText"
-                app:layout_constraintStart_toStartOf="@id/numberText"
-                app:layout_constraintTop_toBottomOf="@id/numberText" />
+                android:background="@color/alto_semi_transparent"
+                android:paddingVertical="@dimen/padding_small"
+                app:layout_constraintBottom_toBottomOf="@+id/oddRv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/oddRv">
+
+                <TextView
+                    android:id="@+id/numberText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:paddingVertical="4dp"
+                    android:text="@string/bk"
+                    android:textColor="@color/rhino"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/separatorView"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/rhino"
+                    app:layout_constraintBottom_toTopOf="@id/oddText"
+                    app:layout_constraintEnd_toEndOf="@id/oddText"
+                    app:layout_constraintStart_toStartOf="@id/oddText" />
+
+                <TextView
+                    android:id="@+id/oddText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingHorizontal="@dimen/padding_standard"
+                    android:paddingVertical="4dp"
+                    android:text="@string/odd"
+                    android:textColor="@color/rhino"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="@id/numberText"
+                    app:layout_constraintStart_toStartOf="@id/numberText"
+                    app:layout_constraintTop_toBottomOf="@id/numberText" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/oddRv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+                app:layout_constraintTop_toBottomOf="@+id/infoLayout" />
+
+            <TextView
+                android:id="@+id/pickedNumbersText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_standard"
+                android:layout_marginTop="@dimen/margin_standard"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/oddRv"
+                tools:text="Izabrano brojeva: 5" />
+
+            <HorizontalScrollView
+                android:id="@+id/pickedNumbersScroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pickedNumbersText">
+
+                <com.sanjacurcic.ui.game.view.PickedNumbersView
+                    android:id="@+id/pickedNumbersView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintHeight_default="wrap" />
+
+            </HorizontalScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/pickNumberButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_standard"
+                android:layout_marginTop="@dimen/margin_standard"
+                android:backgroundTint="@color/pumpkin_semi_transparent"
+                android:text="@string/random_pick"
+                app:cornerRadius="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pickedNumbersScroll" />
+
+            <com.sanjacurcic.ui.game.view.NumbersTableView
+                android:id="@+id/numbersTable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_standard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pickNumberButton" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/oddRv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_standard"
-            android:scrollbars="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-            app:layout_constraintTop_toBottomOf="@+id/infoLayout" />
+    </ScrollView>
 
-        <TextView
-            android:id="@+id/pickedNumbersText"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/timeToPayButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_standard"
+        android:layout_marginBottom="@dimen/margin_standard"
+        android:backgroundTint="@color/red_semi_transparent"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/gameProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ProgressBar
+            android:id="@+id/gameRoundsProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_standard"
-            android:layout_marginTop="@dimen/margin_standard"
-            android:textSize="16sp"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/oddRv"
-            tools:text="Izabrano brojeva: 5" />
-
-        <com.sanjacurcic.ui.game.view.PickedNumbersView
-            android:id="@+id/pickedNumbersView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_standard"
-            android:animateLayoutChanges="true"
+            android:indeterminateTint="@color/rhino"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/gameRoundsRv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pickedNumbersText" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/pickNumberButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_standard"
-            android:layout_marginTop="@dimen/margin_standard"
-            android:text="@string/random_pick"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pickedNumbersView" />
+    </FrameLayout>
 
-
-        <com.sanjacurcic.ui.game.view.NumbersTableView
-            android:id="@+id/numbersTable"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_standard"
-            android:animateLayoutChanges="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pickNumberButton" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

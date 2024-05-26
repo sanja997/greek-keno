@@ -1,6 +1,6 @@
 package com.sanjacurcic.data.datasource
 
-import Either
+import com.sanjacurcic.data.base.functional.Either
 import com.sanjacurcic.data.api.ApiService
 import com.sanjacurcic.data.base.functional.RemoteDataSource
 import com.sanjacurcic.data.dto.GameRoundResponse

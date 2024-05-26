@@ -1,6 +1,6 @@
 package com.sanjacurcic.data.repository
 
-import Either
+import com.sanjacurcic.data.base.functional.Either
 import com.sanjacurcic.data.datasource.DataSource
 import com.sanjacurcic.data.mapper.GameRoundsMapper
 import com.sanjacurcic.data.model.GameRoundModel

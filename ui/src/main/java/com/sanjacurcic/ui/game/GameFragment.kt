@@ -1,5 +1,7 @@
 package com.sanjacurcic.ui.game
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
@@ -16,6 +18,9 @@ import androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL
 import com.sanjacurcic.ui.R
 import com.sanjacurcic.ui.databinding.FragmentGameBinding
 import com.sanjacurcic.ui.game.adapter.OddsAdapter
+import com.sanjacurcic.ui.game.model.GameInfoViewState.Error
+import com.sanjacurcic.ui.game.model.GameInfoViewState.Loading
+import com.sanjacurcic.ui.game.model.GameInfoViewState.Result
 import com.sanjacurcic.ui.game.view.NumberView
 import com.sanjacurcic.ui.helper.getMinutesAndSecondsString
 import com.sanjacurcic.ui.mock.OddMockData
@@ -37,6 +42,8 @@ class GameFragment : Fragment() {
     private val args: GameFragmentArgs by navArgs()
 
     private lateinit var oddsAdapter: OddsAdapter
+
+    private lateinit var countDownTimer: CountDownTimer
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -73,19 +80,23 @@ class GameFragment : Fragment() {
 
         val timeToPay = viewModel.getTimeToPay(args.drawTime)
 
-        object : CountDownTimer(timeToPay, 1000) {
+        countDownTimer = object : CountDownTimer(timeToPay, 1000) {
 
             override fun onTick(millisUntilFinished: Long) {
                 val secondsUntilFinished = millisUntilFinished / 1000
-                binding.timeToPayText.text = secondsUntilFinished.getMinutesAndSecondsString()
+                binding.timeToPayButton.text = requireContext().getString(R.string.time_to_pay_with_time, secondsUntilFinished.getMinutesAndSecondsString())
             }
 
             override fun onFinish() {
                 viewModel.isGameEnded = true
                 findNavController().navigate(GameFragmentDirections.fragmentGameToWebView())
-                this.cancel()
             }
         }.start()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        countDownTimer.cancel()
     }
 
     private fun setUpListeners() {
@@ -99,7 +110,6 @@ class GameFragment : Fragment() {
     }
 
     private fun handleOnNumberPick(number: Int, numberView: NumberView) {
-
         if (!viewModel.isNumberAlreadyPicked(number)) {
             if (viewModel.pickedNumbers.size < MAX_SELECTED_NUMBERS) {
                 binding.pickedNumbersView.addNumber(number)
@@ -120,13 +130,17 @@ class GameFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.state.collectLatest {
                 setUpAdapter()
+                binding.gameProgressBar.isVisible = it is Loading
+                when(it) {
+                    is Result -> setUpAdapter()
+                    is Error -> handleErrorState(it.error)
+                    else -> {}
+                }
             }
         }
     }
 
-
     private fun setUpAdapter() {
-
 
         oddsAdapter = OddsAdapter()
 
@@ -134,5 +148,16 @@ class GameFragment : Fragment() {
         binding.oddRv.setLayoutManager(horizontalLayoutManager)
         binding.oddRv.adapter = oddsAdapter
         oddsAdapter.submitList(OddMockData.oddList)
+    }
+
+    private fun handleErrorState(error: Throwable) {
+        val alertDialog = AlertDialog.Builder(context)
+        alertDialog.apply {
+            setTitle(context.getString(R.string.something_went_wrong))
+            setMessage(error.localizedMessage)
+            setPositiveButton(context.getString(R.string.try_again)) { _: DialogInterface?, _: Int ->
+                viewModel.getGameInfoData(args.drawId)
+            }
+        }.create().show()
     }
 }

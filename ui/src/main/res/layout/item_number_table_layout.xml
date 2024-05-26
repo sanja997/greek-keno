@@ -30,7 +30,7 @@
             android:id="@+id/numberCircle"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:background="@drawable/shape_circle"
+            android:background="@drawable/shape_oval"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/tableNumberText"
             app:layout_constraintEnd_toEndOf="@id/tableNumberText"

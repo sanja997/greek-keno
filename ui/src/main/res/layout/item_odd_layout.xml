@@ -13,13 +13,14 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/ziggurat_semi_transparent"
+        app:cardBackgroundColor="@color/alto_semi_transparent"
         app:cardCornerRadius="2dp"
         app:cardElevation="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/padding_small"
             android:orientation="vertical">
 
             <TextView

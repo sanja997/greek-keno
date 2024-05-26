@@ -1,3 +1,5 @@
+package com.sanjacurcic.data.base.functional
+
 sealed class Either<out E, out R> {
     data class Error<out E>(val data: E) : Either<E, Nothing>()
     data class Result<out R>(val data: R) : Either<Nothing, R>()

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sanjacurcic.data.model.GameRoundModel
 import com.sanjacurcic.ui.R
 import com.sanjacurcic.ui.databinding.ItemRoundLayoutBinding
-import com.sanjacurcic.ui.helper.getFormattedTime
+import com.sanjacurcic.domain.helper.getFormattedTime
 import com.sanjacurcic.ui.helper.getMinutesAndSecondsString
 import java.time.Duration
 import java.time.Instant

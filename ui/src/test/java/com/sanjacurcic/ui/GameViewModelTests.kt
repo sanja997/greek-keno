@@ -1,5 +1,6 @@
 package com.sanjacurcic.ui
 
+import androidx.lifecycle.SavedStateHandle
 import com.sanjacurcic.data.base.functional.Either
 import com.sanjacurcic.domain.usecase.GetGameInfoUseCase
 import com.sanjacurcic.ui.base.ViewModelBaseTest
@@ -32,6 +33,9 @@ class GameViewModelTests : ViewModelBaseTest() {
 
     @Mock
     private lateinit var gameInfoUseCase: GetGameInfoUseCase
+
+    @Mock
+    private lateinit var savedStateHandle: SavedStateHandle
 
     @Before
     fun setUp() {

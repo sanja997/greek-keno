@@ -13,4 +13,5 @@
     <string name="odd">Kvota</string>
     <string name="random_pick">Slučajni odabir</string>
     <string name="time_to_pay_with_time">Izvlačenje počinje za: %s</string>
+    <string name="results">Rezultati</string>
 </resources>

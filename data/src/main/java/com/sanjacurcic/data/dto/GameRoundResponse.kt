@@ -6,5 +6,6 @@ data class GameRoundResponse(
     val drawTime: Long?,
     val status: String?,
     val pricePoints: PricePointsResponse?,
-    val prizeCategories: List<PriceCategoryResponse>?
+    val prizeCategories: List<PriceCategoryResponse>?,
+    val winningNumbers: WinningNumbersResponse?
 )

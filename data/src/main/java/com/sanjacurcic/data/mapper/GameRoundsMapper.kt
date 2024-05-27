@@ -12,7 +12,8 @@ class GameRoundsMapper : IMapper<GameRoundResponse, GameRoundModel> {
             drawTime = from?.drawTime ?: 0,
             status = from?.status.orEmpty(),
             pricePoints = PricePointsMapper().map(from?.pricePoints),
-            prizeCategories = from?.prizeCategories?.map { PrizeCategoryMapper().map(it) } ?: emptyList()
+            prizeCategories = from?.prizeCategories?.map { PrizeCategoryMapper().map(it) } ?: emptyList(),
+            winningNumbers = WinningNumbersMapper().map(from?.winningNumbers)
         )
     }
 }

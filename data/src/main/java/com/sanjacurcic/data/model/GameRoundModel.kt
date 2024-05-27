@@ -6,5 +6,6 @@ data class GameRoundModel(
     val drawTime: Long,
     val status: String,
     val pricePoints: PricePointsModel,
-    val prizeCategories: List<PriceCategoryModel>
+    val prizeCategories: List<PriceCategoryModel>,
+    val winningNumbers: WinningNumbersModel
 )

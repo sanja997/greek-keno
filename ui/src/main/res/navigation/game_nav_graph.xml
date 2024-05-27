@@ -37,6 +37,10 @@
             android:id="@+id/fragmentGameToWebView"
             app:destination="@id/webViewFragment" />
 
+        <action
+            android:id="@+id/fragmentGameToFragmentResults"
+            app:destination="@id/fragmentGameResults" />
+
         <argument
             android:name="drawId"
             app:argType="integer"
@@ -49,11 +53,14 @@
 
     </fragment>
 
-
     <fragment
         android:id="@+id/webViewFragment"
         android:name="com.sanjacurcic.ui.webview.WebViewFragment">
 
     </fragment>
+
+    <fragment
+        android:id="@+id/fragmentGameResults"
+        android:name="com.sanjacurcic.ui.gameresults.GameResultsFragment"/>
 
 </navigation>

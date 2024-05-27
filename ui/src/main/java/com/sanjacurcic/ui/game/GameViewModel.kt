@@ -1,5 +1,6 @@
 package com.sanjacurcic.ui.game
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sanjacurcic.domain.usecase.GetGameInfoUseCase
@@ -8,7 +9,7 @@ import com.sanjacurcic.ui.game.model.GameInfoViewState.Loading
 import com.sanjacurcic.ui.game.model.GameInfoViewState.Result
 import com.sanjacurcic.ui.game.model.GameInfoViewState.Error
 import com.sanjacurcic.ui.gamerounds.view.GameRoundsViewHolder
-import com.sanjacurcic.ui.helper.getFormattedTime
+import com.sanjacurcic.domain.helper.getFormattedTime
 import com.sanjacurcic.ui.model.GameInfo.GREEK_KENO_GAME_ID
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,8 +23,15 @@ import kotlin.math.abs
 
 @HiltViewModel
 class GameViewModel @Inject constructor(
-    private val gameInfoUseCase: GetGameInfoUseCase
+    private val gameInfoUseCase: GetGameInfoUseCase,
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
+
+    private val drawId: Int? = savedStateHandle["drawId"]
+
+    init {
+        drawId?.let { getGameInfoData(it) }
+    }
 
     val pickedNumbers = mutableListOf<Int>()
     var isGameEnded = false

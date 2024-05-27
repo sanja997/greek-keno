@@ -9,6 +9,7 @@
         android:id="@+id/scrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +54,7 @@
                 android:id="@+id/constraintLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_standard"
                 android:background="@color/alto_semi_transparent"
                 android:paddingVertical="@dimen/padding_small"
                 app:layout_constraintBottom_toBottomOf="@+id/oddRv"
@@ -122,6 +124,7 @@
                 android:id="@+id/pickedNumbersScroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_standard"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pickedNumbersText">
@@ -141,7 +144,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginTop="@dimen/margin_standard"
-                android:backgroundTint="@color/pumpkin_semi_transparent"
+                android:backgroundTint="@color/blue_semi_transparent"
                 android:text="@string/random_pick"
                 app:cornerRadius="5dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -160,34 +163,53 @@
 
     </ScrollView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/timeToPayButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_standard"
-        android:layout_marginBottom="@dimen/margin_standard"
-        android:backgroundTint="@color/red_semi_transparent"
-        app:cornerRadius="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/seeResultsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/ziggurat_semi_transparent"
+            android:text="@string/results"
+            android:textColor="@color/rhino"
+            app:cornerRadius="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/timeToPayButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/red_semi_transparent"
+            app:cornerRadius="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/timeToPayButton" />
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/gameProgressBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         android:background="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ProgressBar
-            android:id="@+id/gameRoundsProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateTint="@color/rhino"
             android:layout_gravity="center"
+            android:indeterminateTint="@color/rhino"
             app:layout_constraintBottom_toBottomOf="@+id/gameRoundsRv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

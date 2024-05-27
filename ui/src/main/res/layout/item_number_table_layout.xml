@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:background="@color/ziggurat_semi_transparent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tableNumberText"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="@dimen/padding_standard"
+            android:textColor="@color/rhino"
+            android:textSize="17sp"
+            app:cardBackgroundColor="@color/ziggurat_semi_transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="10" />
+
+        <View
+            android:id="@+id/numberCircle"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/shape_oval"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/tableNumberText"
+            app:layout_constraintEnd_toEndOf="@id/tableNumberText"
+            app:layout_constraintStart_toStartOf="@id/tableNumberText"
+            app:layout_constraintTop_toTopOf="@id/tableNumberText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
